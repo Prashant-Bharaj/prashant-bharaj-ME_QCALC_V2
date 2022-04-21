@@ -1,7 +1,7 @@
 package com.crio.qcalc;
 
 public class StandardCalculator {
-    private double result;
+    protected double result;
 
     public double getResult() {
         return result;
@@ -29,7 +29,7 @@ public class StandardCalculator {
         add((double)num1, (double)num2);
     }
 
-    public void add(double num1, double num2) {
+    public final void add(double num1, double num2) {
         
         double result = num1 + num2;
         if(result == Double.MAX_VALUE || result == Double.POSITIVE_INFINITY){
@@ -42,7 +42,7 @@ public class StandardCalculator {
         subtract((double)num1, (double)num2);
     }
 
-    public void subtract(double num1, double num2) {
+    public final void subtract(double num1, double num2) {
         double result = num1 - num2;
         if(result == - Double.MAX_VALUE || result == Double.NEGATIVE_INFINITY){
             throw new ArithmeticException("Double overflow");
