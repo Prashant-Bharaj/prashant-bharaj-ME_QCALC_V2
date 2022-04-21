@@ -55,18 +55,23 @@ public class StandardCalculator {
     }
 
     public void multiply(double num1, double num2) {
-        result = num1 * num2;
+        double result = num1 * num2;
+        if(result == Double.MAX_VALUE || result == -Double.MAX_VALUE || result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY){
+            throw new ArithmeticException("Double Overflow");
+        }
+        this.result = result;
     }
 
     public void divide(int num1, int num2) {
-        // TODO handle divide by zero exception
         divide((double)num1, (double)num2);
     }
 
     public void divide(double num1, double num2) {
-        // TODO handle divide by zero exception
-
+        if(num2 == 0.0){
+            throw new ArithmeticException("Divide by Zero");
+        }
         result = num1 / num2;
+
     }
 
 }
